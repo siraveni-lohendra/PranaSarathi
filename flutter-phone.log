@@ -1,0 +1,562 @@
+Launching lib\main.dart on Redmi 8A Dual in debug mode...
+Running Gradle task 'assembleDebug'...                          
+Running Gradle task 'assembleDebug'...                             13.3s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...          10.0s
+I/FlutterActivityAndFragmentDelegate(18822): If you are attempting to set --enable-dart-profiling via Intent extras to launch a Flutter component outside of using the Flutter CLI, note that support for setting engine flags on Android via Intent will soon be dropped; see https://github.com/flutter/flutter/issues/180686 for more information on this breaking change. To migrate, set --enable-dart-profiling or any other flags specified via Intent extras on the command line instead or see https://github.com/flutter/flutter/blob/main/docs/engine/Flutter-Android-Engine-Flags.md for alternative methods.
+D/FlutterJNI(18822): Beginning load of flutter...
+D/FlutterJNI(18822): flutter (null) was loaded normally!
+I/flutter (18822): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+I/flutter (18822): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+D/FlutterGeolocator(18822): Attaching Geolocator to activity
+D/FlutterRenderer(18822): Width is zero. 0,0
+Syncing files to device Redmi 8A Dual...                           191ms
+
+Flutter run key commands.
+r Hot reload. 
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on Redmi 8A Dual is available at: http://127.0.0.1:63224/n9qWiz6Szsk=/
+The Flutter DevTools debugger and profiler on Redmi 8A Dual is available at: http://127.0.0.1:63224/n9qWiz6Szsk=/devtools/?uri=ws://127.0.0.1:63224/n9qWiz6Szsk=/ws
+I/bulance_flutte(18822): ProcessProfilingInfo new_methods=908 is saved saved_to_disk=1 resolve_classes_delay=8000
+W/Looper  (18822): Slow Looper main: Activity com.ambulancealert.ambulance_flutter/.MainActivity is 9997ms late (wall=1ms running=1ms ClientTransaction{ callbacks=[android.app.servertransaction.TopResumedActivityChangeItem] }) because of 2 msg, msg 1 took 1130ms (seq=2 running=999ms runnable=36ms io=27ms late=4ms h=android.app.ActivityThread$H w=110), msg 2 took 5793ms (seq=3 running=1580ms runnable=59ms io=371ms late=1070ms h=android.app.ActivityThread$H w=159)
+I/Choreographer(18822): Skipped 661 frames!  The application may be doing too much work on its main thread.
+D/FlutterRenderer(18822): Width is zero. 0,0
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+W/1.raster(18822): type=1400 audit(0.0:27113): avc: denied { read } for name="u:object_r:vendor_default_prop:s0" dev="tmpfs" ino=12495 scontext=u:r:untrusted_app:s0:c118,c256,c512,c768 tcontext=u:object_r:vendor_default_prop:s0 tclass=file permissive=0
+E/libc    (18822): Access denied finding property "ro.vendor.mediatek.platform"
+W/Looper  (18822): Slow Looper main: Long Msg: seq=7 plan=23:33:30.916  late=11018ms wall=2538ms running=173ms runnable=4ms io=74ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver
+W/Looper  (18822): Slow Looper main: doFrame is 11018ms late because of 5 msg, msg 1 took 1130ms (seq=2 running=999ms runnable=36ms io=27ms late=4ms h=android.app.ActivityThread$H w=110), msg 2 took 5793ms (seq=3 running=1580ms runnable=59ms io=371ms late=1070ms h=android.app.ActivityThread$H w=159)
+D/FlutterGeolocator(18822): Creating service.
+D/FlutterGeolocator(18822): Binding to location service.
+W/Gralloc3(18822): mapper 3.x is not supported
+I/Choreographer(18822): Skipped 186 frames!  The application may be doing too much work on its main thread.
+I/OpenGLRenderer(18822): Davey! duration=3144ms; Flags=1, IntendedVsync=47451845287775, Vsync=47454945287651, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=47454947894083, AnimationStart=47454947965698, PerformTraversalsStart=47454947975593, DrawStart=47454958897937, SyncQueued=47454962021479, SyncStart=47454962431479, IssueDrawCommandsStart=47454962724500, SwapBuffers=47454987644812, FrameCompleted=47454989755645, DequeueBufferDuration=1691000, QueueBufferDuration=1136000, 
+W/Looper  (18822): Slow Looper main: doFrame is 3101ms late because of 22 msg, msg 1 took 2538ms (seq=7 running=173ms runnable=4ms io=74ms late=11018ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver), msg 16 took 231ms (seq=22 running=3ms runnable=1ms io=213ms late=3899ms h=android.os.Handler c=io.flutter.embedding.engine.dart.DartMessenger$$ExternalSyntheticLambda0), msg 17 took 80ms (seq=23 running=46ms runnable=8ms io=16ms late=4155ms h=android.os.Handler c=io.flutter.embedding.engine.dart.DartMessenger$$ExternalSyntheticLambda0)
+D/FlutterGeolocator(18822): Geolocator foreground service connected
+D/FlutterGeolocator(18822): Initializing Geolocator services
+D/FlutterGeolocator(18822): Flutter engine connected. Connected engine count 1
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+I/TextToSpeech(18822): Connected to ComponentInfo{com.google.android.tts/com.google.android.apps.speech.tts.googletts.service.GoogleTtsService}
+W/Looper  (18822): Slow Looper main: doFrame is 498ms late because of 1 msg
+D/ProfileInstaller(18822): Installing profile for com.ambulancealert.ambulance_flutter
+W/BpBinder(18822): Slow Binder: BpBinder transact took 2118 ms, interface=android.speech.tts.ITextToSpeechService, code=15 oneway=false
+I/TextToSpeech(18822): Set up connection to ComponentInfo{com.google.android.tts/com.google.android.apps.speech.tts.googletts.service.GoogleTtsService}
+W/BpBinder(18822): Slow Binder: BpBinder transact took 965 ms, interface=android.speech.tts.ITextToSpeechService, code=9 oneway=false
+W/Looper  (18822): Slow Looper main: Long Msg: seq=52 plan=23:33:48.940  late=0ms wall=1534ms running=380ms runnable=7ms h=android.os.AsyncTask$InternalHandler w=1
+I/PlatformViewsChannel(18822): Using legacy platform view rendering strategy.
+D/MapsInitializer(18822): preferredRenderer: null
+D/zzcc    (18822): preferredRenderer: null
+I/zzcc    (18822): Making Creator dynamically
+I/DynamiteModule(18822): Considering local module com.google.android.gms.maps_core_dynamite:0 and remote module com.google.android.gms.maps_core_dynamite:263020506
+I/DynamiteModule(18822): Selected remote version of com.google.android.gms.maps_core_dynamite, version >= 263020506
+V/DynamiteModule(18822): Dynamite loader version >= 2, using loadModule2NoCrashUtils
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getLong(Ljava/lang/Object;J)J (greylist,core-platform-api, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->objectFieldOffset(Ljava/lang/reflect/Field;)J (greylist,core-platform-api, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapInt(Ljava/lang/Object;JII)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapLong(Ljava/lang/Object;JJJ)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putLong(Ljava/lang/Object;JJ)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putOrderedInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putOrderedLong(Ljava/lang/Object;JJ)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putOrderedObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden field Lsun/misc/Unsafe;->theUnsafe:Lsun/misc/Unsafe; (greylist, reflection, allowed)
+D/zzcc    (18822): early loading native code
+W/bulance_flutte(18822): Accessing hidden method Ldalvik/system/VMStack;->getStackClass2()Ljava/lang/Class; (greylist, linking, allowed)
+I/native  (18822): I0000 00:00:1789063436.696774   18822 jni_init.cc:38] Initializing JNI...
+I/Google Android Maps SDK(18822): Google Play services client version: 20000000
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->arrayBaseOffset(Ljava/lang/Class;)I (greylist,core-platform-api, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->arrayIndexScale(Ljava/lang/Class;)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putObjectVolatile(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObjectVolatile(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+D/bp      (18822): SDK type: 1, version: 263020506
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getLong(Ljava/lang/Object;J)J (greylist,core-platform-api, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putLong(Ljava/lang/Object;JJ)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->allocateInstance(Ljava/lang/Class;)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Llibcore/io/Memory;->peekLong(JZ)J (greylist, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden method Llibcore/io/Memory;->pokeLong(JJZ)V (greylist, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden method Llibcore/io/Memory;->pokeInt(JIZ)V (greylist, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden method Llibcore/io/Memory;->peekInt(JZ)I (greylist, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden method Llibcore/io/Memory;->pokeByte(JB)V (greylist, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden method Llibcore/io/Memory;->peekByte(J)B (greylist, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden method Llibcore/io/Memory;->pokeByteArray(J[BII)V (greylist, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden method Llibcore/io/Memory;->peekByteArray(J[BII)V (greylist, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getLong(Ljava/lang/Object;J)J (greylist,core-platform-api, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden field Ljava/nio/Buffer;->address:J (greylist, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getLong(Ljava/lang/Object;J)J (greylist,core-platform-api, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putLong(Ljava/lang/Object;JJ)V (greylist, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, reflection, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getUnsafe()Lsun/misc/Unsafe; (greylist,core-platform-api, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+D/hp      (18822): maps_core_dynamite module version in use (0 represents standalone library): 263020506
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+D/hp      (18822): Added event: 109
+D/hp      (18822): Added event: 112
+D/MapsInitializer(18822): loadedRenderer: LATEST
+D/zzcc    (18822): preferredRenderer: null
+D/bp      (18822): SDK type: 1, version: 263020506
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+I/Google Android Maps SDK(18822): Google Play services package version: 263332009
+I/Google Android Maps SDK(18822): Google Play services maps renderer version(maps_core): 263020506
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+D/bp      (18822): SDK type: 1, version: 263020506
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+D/df      (18822): about to start loading native library asynchronously
+W/x       (18822): Suppressed StrictMode policy violation: StrictModeDiskReadViolation
+I/o       (18822): Using GMM server: https://clients4.google.com/glm/mmap
+W/x       (18822): Suppressed StrictMode policy violation: StrictModeDiskReadViolation
+W/x       (18822): Suppressed StrictMode policy violation: StrictModeDiskWriteViolation
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+D/o       (18822): Using Non-null serverVersionMetadataManager to load previous metadata.
+W/x       (18822): Suppressed StrictMode policy violation: StrictModeDiskReadViolation
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getLong(Ljava/lang/Object;J)J (greylist,core-platform-api, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+I/ClientParamsBlocking(18822): ClientParametersBlockingReference.blockedOnMainThread: ENABLE_FEATURES for 23 ms.
+I/ClientParamsBlocking(18822): java.lang.Throwable
+I/ClientParamsBlocking(18822): 	at m140.bje.e(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:163)
+I/ClientParamsBlocking(18822): 	at m140.bje.a(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:1)
+I/ClientParamsBlocking(18822): 	at m140.bhc.a(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:3)
+I/ClientParamsBlocking(18822): 	at m140.bks.b(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:9)
+I/ClientParamsBlocking(18822): 	at m140.egx.a(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:148)
+I/ClientParamsBlocking(18822): 	at m140.jva.d(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:12)
+I/ClientParamsBlocking(18822): 	at m140.jva.a(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:7)
+I/ClientParamsBlocking(18822): 	at m140.eer.<init>(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:47)
+I/ClientParamsBlocking(18822): 	at m140.ees.a(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:78)
+I/ClientParamsBlocking(18822): 	at m140.jva.d(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:12)
+I/ClientParamsBlocking(18822): 	at m140.jva.a(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:7)
+I/ClientParamsBlocking(18822): 	at com.google.maps.api.android.lib6.phoenix.bb.a(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:5)
+I/ClientParamsBlocking(18822): 	at m140.jva.d(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:12)
+I/ClientParamsBlocking(18822): 	at m140.jva.a(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:7)
+I/ClientParamsBlocking(18822): 	at com.google.maps.api.android.lib6.phoenix.az.a(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:3)
+I/ClientParamsBlocking(18822): 	at m140.jva.d(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:12)
+I/ClientParamsBlocking(18822): 	at m140.jva.a(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:7)
+I/ClientParamsBlocking(18822): 	at com.google.maps.api.android.lib6.phoenix.be.a(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:3)
+I/ClientParamsBlocking(18822): 	at m140.jva.d(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:12)
+I/ClientParamsBlocking(18822): 	at m140.jva.a(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:7)
+I/ClientParamsBlocking(18822): 	at com.google.maps.api.android.lib6.impl.ch.aY(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:67)
+I/ClientParamsBlocking(18822): 	at com.google.maps.api.android.lib6.impl.em.d(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:12)
+I/ClientParamsBlocking(18822): 	at com.google.android.gms.maps.internal.t.br(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:158)
+I/ClientParamsBlocking(18822): 	at m140.bba.onTransact(:com.google.android.gms.policy_maps_core_dynamite@263020519@263020506021.972157621.972157621:21)
+I/ClientParamsBlocking(18822): 	at android.os.Binder.transact(Binder.java:914)
+I/ClientParamsBlocking(18822): 	at com.google.android.gms.internal.maps.zza.zzc(com.google.android.gms:play-services-maps@@20.0.0:2)
+I/ClientParamsBlocking(18822): 	at com.google.android.gms.maps.internal.zzl.onCreate(com.google.android.gms:play-services-maps@@20.0.0:3)
+I/ClientParamsBlocking(18822): 	at com.google.android.gms.maps.zzah.onCreate(com.google.android.gms:play-services-maps@@20.0.0:3)
+I/ClientParamsBlocking(18822): 	at com.google.android.gms.dynamic.zac.zab(com.google.android.gms:play-services-base@@18.4.0:1)
+I/ClientParamsBlocking(18822): 	at com.google.android.gms.dynamic.zaa.onDelegateCreated(com.google.android.gms:play-services-base@@18.4.0:3)
+I/ClientParamsBlocking(18822): 	at com.google.android.gms.maps.zzai.zzb(com.google.android.gms:play-services-maps@@20.0.0:5)
+I/ClientParamsBlocking(18822): 	at com.google.android.gms.maps.zzai.createDelegate(com.google.android.gms:play-services-maps@@20.0.0:1)
+I/ClientParamsBlocking(18822): 	at com.google.android.gms.dynamic.DeferredLifecycleHelper.zaf(com.google.android.gms:play-services-base@@18.4.0:6)
+I/ClientParamsBlocking(18822): 	at com.google.android.gms.dynamic.DeferredLifecycleHelper.onCreate(com.google.android.gms:play-services-base@@18.4.0:1)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+I/ClientParamsBlocking(18822): 	at com.google.android.gms.maps.MapView.onCreate(com.google.android.gms:play-services-maps@@20.0.0:4)
+I/ClientParamsBlocking(18822): 	at io.flutter.plugins.googlemaps.GoogleMapController.onCreate(GoogleMapController.java:481)
+I/ClientParamsBlocking(18822): 	at androidx.lifecycle.DefaultLifecycleObserverAdapter.onStateChanged(DefaultLifecycleObserverAdapter.kt:24)
+I/ClientParamsBlocking(18822): 	at androidx.lifecycle.LifecycleRegistry$ObserverWithState.dispatchEvent(LifecycleRegistry.kt:322)
+I/ClientParamsBlocking(18822): 	at androidx.lifecycle.LifecycleRegistry.addObserver(LifecycleRegistry.kt:199)
+I/ClientParamsBlocking(18822): 	at io.flutter.plugins.googlemaps.GoogleMapController.init(GoogleMapController.java:198)
+I/ClientParamsBlocking(18822): 	at io.flutter.plugins.googlemaps.GoogleMapBuilder.build(GoogleMapBuilder.java:45)
+I/ClientParamsBlocking(18822): 	at io.flutter.plugins.googlemaps.GoogleMapFactory.create(GoogleMapFactory.java:56)
+I/ClientParamsBlocking(18822): 	at io.flutter.plugin.platform.PlatformViewsController.createPlatformView(PlatformViewsController.java:535)
+I/ClientParamsBlocking(18822): 	at io.flutter.plugin.platform.PlatformViewsController$1.createForTextureLayer(PlatformViewsController.java:214)
+I/ClientParamsBlocking(18822): 	at io.flutter.plugin.platform.PlatformViewsControllerDelegator.createForTextureLayer(PlatformViewsControllerDelegator.java:134)
+I/ClientParamsBlocking(18822): 	at io.flutter.embedding.engine.systemchannels.PlatformViewsChannel$1.create(PlatformViewsChannel.java:132)
+I/ClientParamsBlocking(18822): 	at io.flutter.embedding.engine.systemchannels.PlatformViewsChannel$1.onMethodCall(PlatformViewsChannel.java:55)
+I/ClientParamsBlocking(18822): 	at io.flutter.plugin.common.MethodChannel$IncomingMethodCallHandler.onMessage(MethodChannel.java:267)
+I/ClientParamsBlocking(18822): 	at io.flutter.embedding.engine.dart.DartMessenger.invokeHandler(DartMessenger.java:286)
+I/ClientParamsBlocking(18822): 	at io.flutter.embedding.engine.dart.DartMessenger.lambda$dispatchMessageToQueue$0$io-flutter-embedding-engine-dart-DartMessenger(DartMessenger.java:313)
+I/ClientParamsBlocking(18822): 	at io.flutter.embedding.engine.dart.DartMessenger$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+I/ClientParamsBlocking(18822): 	at android.os.Handler.handleCallback(Handler.java:883)
+I/ClientParamsBlocking(18822): 	at android.os.Handler.dispatchMessage(Handler.java:100)
+I/ClientParamsBlocking(18822): 	at android.os.Looper.loop(Looper.java:223)
+I/ClientParamsBlocking(18822): 	at android.app.ActivityThread.main(ActivityThread.java:7562)
+I/ClientParamsBlocking(18822): 	at java.lang.reflect.Method.invoke(Native Method)
+I/ClientParamsBlocking(18822): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:539)
+I/ClientParamsBlocking(18822): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:950)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/Settings(18822): Setting device_provisioned has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/chatty  (18822): uid=10118(com.ambulancealert.ambulance_flutter) identical 1 line
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/cn_JavaCronetEngine(18822): using the fallback Cronet Engine implementation. Performance will suffer and many HTTP client features, including caching, will not work.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/chatty  (18822): uid=10118(com.ambulancealert.ambulance_flutter) androidmapsapi- identical 2 lines
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/GMM-SatelliteConnectivity(18822): WIFI  isActiveNetworkSatellite: false  isNetworkDisabledByOfflineModeController: false  activeNetworkInfoIsNull: false
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapInt(Ljava/lang/Object;JII)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putOrderedObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/chatty  (18822): uid=10118(com.ambulancealert.ambulance_flutter) androidmapsapi- identical 1 line
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+I/chatty  (18822): uid=10118(com.ambulancealert.ambulance_flutter) identical 1 line
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/PlatformViewsController(18822): Hosting view in view hierarchy for platform view: 0
+I/PlatformViewsController(18822): PlatformView is using SurfaceProducer backend
+D/ForceDarkHelper(18822): updateByCheckExcludeList: pkg: com.ambulancealert.ambulance_flutter activity: com.ambulancealert.ambulance_flutter.MainActivity@967a56e
+W/Gralloc3(18822): allocator 3.x is not supported
+W/Looper  (18822): Slow Looper main: Long Msg: seq=83 plan=23:33:55.949  late=18ms wall=2582ms running=1779ms runnable=27ms io=255ms h=android.os.Handler c=io.flutter.embedding.engine.dart.DartMessenger$$ExternalSyntheticLambda0
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/GoogleMapController(18822): Installing custom TextureView driven invalidator.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapLong(Ljava/lang/Object;JJJ)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden field Ljava/nio/Buffer;->position:I (greylist, JNI, allowed)
+W/bulance_flutte(18822): Accessing hidden field Ljava/nio/Buffer;->limit:I (greylist, JNI, allowed)
+W/bulance_flutte(18822): Accessing hidden field Ljava/nio/Buffer;->_elementSizeShift:I (greylist, JNI, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getLong(Ljava/lang/Object;J)J (greylist,core-platform-api, linking, allowed)
+D/ImageReaderSurfaceProducer(18822): ImageTextureEntry can't wait on the fence on Android < 33
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getLong(Ljava/lang/Object;J)J (greylist,core-platform-api, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/DynamiteModule(18822): Local module descriptor class for com.google.android.gms.googlecertificates not found.
+I/DynamiteModule(18822): Considering local module com.google.android.gms.googlecertificates:0 and remote module com.google.android.gms.googlecertificates:7
+I/DynamiteModule(18822): Selected remote version of com.google.android.gms.googlecertificates, version >= 7
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+W/BpBinder(18822): Slow Binder: BpBinder transact took 765 ms, interface=com.google.android.gms.maps.auth.IApiTokenService, code=1 oneway=false
+E/Google Android Maps SDK(18822): Authorization failure.  Please see https://developers.google.com/maps/documentation/android-sdk/start for how to correctly set up the map.
+E/Google Android Maps SDK(18822): In the Google Developer Console (https://console.developers.google.com)
+E/Google Android Maps SDK(18822): Ensure that the "Maps SDK for Android" is enabled.
+E/Google Android Maps SDK(18822): Ensure that the following Android Key exists:
+E/Google Android Maps SDK(18822): 	API Key: YOUR_ANDROID_GOOGLE_MAPS_API_KEY
+E/Google Android Maps SDK(18822): 	Android Application (<cert_fingerprint>;<package_name>): FA:A9:61:79:72:43:30:9E:95:2C:5B:8F:AB:AC:76:B9:CE:69:CB:62;com.ambulancealert.ambulance_flutter
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putLong(Ljava/lang/Object;JJ)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+I/bulance_flutte(18822): Background concurrent copying GC freed 29458(1481KB) AllocSpace objects, 0(0B) LOS objects, 76% free, 5803KB/23MB, paused 240us total 108.222ms
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/chatty  (18822): uid=10118(com.ambulancealert.ambulance_flutter) androidmapsapi- identical 5 lines
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+D/ViewRootImpl(18822): [TouchInput][ViewRootImpl] KeyEvent { action=ACTION_DOWN, keyCode=KEYCODE_BACK, scanCode=0, metaState=0, flags=0x8, repeatCount=0, eventTime=47558323, downTime=47558323, deviceId=-1, source=0x101, displayId=-1 }
+D/ViewRootImpl(18822): [TouchInput][ViewRootImpl] KeyEvent { action=ACTION_UP, keyCode=KEYCODE_BACK, scanCode=0, metaState=0, flags=0x8, repeatCount=0, eventTime=47558323, downTime=47558323, deviceId=-1, source=0x101, displayId=-1 }
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+D/Google Android Maps SDK(18822): For capability in capabilities, log:
+D/Google Android Maps SDK(18822): "AdvancedMarkers: false: Capabilities unavailable without a Map ID."Data-driven styling: false
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+D/FlutterGeolocator(18822): Detaching Geolocator from activity
+D/FlutterGeolocator(18822): Flutter engine disconnected. Connected engine count 0
+D/FlutterGeolocator(18822): Disposing Geolocator services
+E/FlutterGeolocator(18822): Geolocator position updates stopped
+D/FlutterGeolocator(18822): Stopping location service.
+W/Activity(18822): Slow Operation: Activity com.ambulancealert.ambulance_flutter/.MainActivity onDestroy took 128ms
+D/FlutterGeolocator(18822): Unbinding from location service.
+D/FlutterGeolocator(18822): Destroying location service.
+D/FlutterGeolocator(18822): Stopping location service.
+D/FlutterGeolocator(18822): Destroyed location service.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+I/bulance_flutte(18822): Waiting for a blocking GC ProfileSaver
+I/bulance_flutte(18822): WaitForGcToComplete blocked ProfileSaver on ProfileSaver for 12.781ms
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ActivityThread(18822): handleWindowVisibility: no activity for token android.os.BinderProxy@5ce16a8
+W/2.raster(18822): type=1400 audit(0.0:27133): avc: denied { read } for name="u:object_r:vendor_default_prop:s0" dev="tmpfs" ino=12495 scontext=u:r:untrusted_app:s0:c118,c256,c512,c768 tcontext=u:object_r:vendor_default_prop:s0 tclass=file permissive=0
+E/libc    (18822): Access denied finding property "ro.vendor.build.version.sdk"
+E/libc    (18822): Access denied finding property "ro.vendor.mediatek.platform"
+W/2.raster(18822): type=1400 audit(0.0:27134): avc: denied { read } for name="u:object_r:vendor_default_prop:s0" dev="tmpfs" ino=12495 scontext=u:r:untrusted_app:s0:c118,c256,c512,c768 tcontext=u:object_r:vendor_default_prop:s0 tclass=file permissive=0
+I/AdrenoVK(18822): QUALCOMM build          : c692a3f, Ie3bb699d95
+I/AdrenoVK(18822): Build Date              : 09/29/20
+I/AdrenoVK(18822): Shader Compiler Version : EV031.27.05.02
+I/AdrenoVK(18822): Local Branch            : 
+I/AdrenoVK(18822): Remote Branch           : refs/tags/AU_LINUX_ANDROID_LA.UM.8.6.2.R1.10.00.00.537.053
+I/AdrenoVK(18822): Remote Branch           : NONE
+I/AdrenoVK(18822): Reconstruct Branch      : NOTHING
+I/AdrenoVK(18822): Build Config            : S L 8.0.10 AArch32
+I/flutter (18822): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+I/flutter (18822): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+W/bulance_flutte(18822): Suspending all threads took: 43.272ms
+I/TextToSpeech(18822): Sucessfully bound to com.google.android.tts
+D/FlutterGeolocator(18822): Attaching Geolocator to activity
+D/ForceDarkHelper(18822): updateByCheckExcludeList: pkg: com.ambulancealert.ambulance_flutter activity: com.ambulancealert.ambulance_flutter.MainActivity@ec100bb
+D/ForceDarkHelper(18822): updateByCheckExcludeList: pkg: com.ambulancealert.ambulance_flutter activity: com.ambulancealert.ambulance_flutter.MainActivity@ec100bb
+D/FlutterRenderer(18822): Width is zero. 0,0
+D/ForceDarkHelper(18822): updateByCheckExcludeList: pkg: com.ambulancealert.ambulance_flutter activity: com.ambulancealert.ambulance_flutter.MainActivity@ec100bb
+W/Activity(18822): Slow Operation: Activity com.ambulancealert.ambulance_flutter/.MainActivity onCreate took 1797ms
+I/chatty  (18822): uid=10118(com.ambulancealert.ambulance_flutter) identical 1 line
+D/ForceDarkHelper(18822): updateByCheckExcludeList: pkg: com.ambulancealert.ambulance_flutter activity: com.ambulancealert.ambulance_flutter.MainActivity@ec100bb
+W/Looper  (18822): Slow Looper main: Long Msg: seq=19185 plan=23:35:38.448  late=0ms wall=1854ms running=1262ms runnable=39ms io=364ms h=android.app.ActivityThread$H w=159
+W/Looper  (18822): Slow Looper main: Activity com.ambulancealert.ambulance_flutter/.MainActivity is 4868ms late (wall=1ms running=1ms ClientTransaction{ callbacks=[android.app.servertransaction.TopResumedActivityChangeItem] }) because of 1 msg, msg 1 took 1854ms (seq=19185 running=1262ms runnable=39ms io=364ms h=android.app.ActivityThread$H w=159)
+D/FlutterGeolocator(18822): Creating service.
+D/FlutterGeolocator(18822): Binding to location service.
+I/Choreographer(18822): Skipped 297 frames!  The application may be doing too much work on its main thread.
+D/FlutterRenderer(18822): Width is zero. 0,0
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+W/2.raster(18822): type=1400 audit(0.0:27137): avc: denied { read } for name="u:object_r:vendor_default_prop:s0" dev="tmpfs" ino=12495 scontext=u:r:untrusted_app:s0:c118,c256,c512,c768 tcontext=u:object_r:vendor_default_prop:s0 tclass=file permissive=0
+E/libc    (18822): Access denied finding property "ro.vendor.mediatek.platform"
+W/Looper  (18822): Slow Looper main: doFrame is 4954ms late because of 6 msg
+D/FlutterGeolocator(18822): Geolocator foreground service connected
+D/FlutterGeolocator(18822): Initializing Geolocator services
+D/FlutterGeolocator(18822): Flutter engine connected. Connected engine count 1
+I/Choreographer(18822): Skipped 59 frames!  The application may be doing too much work on its main thread.
+I/OpenGLRenderer(18822): Davey! duration=1005ms; Flags=1, IntendedVsync=47574985958779, Vsync=47575969292073, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=47575973291172, AnimationStart=47575973346693, PerformTraversalsStart=47575973353933, DrawStart=47575983900547, SyncQueued=47575985308203, SyncStart=47575985808828, IssueDrawCommandsStart=47575985912422, SwapBuffers=47575989676120, FrameCompleted=47575991474558, DequeueBufferDuration=2195000, QueueBufferDuration=830000, 
+W/Looper  (18822): Slow Looper main: doFrame is 986ms late because of 19 msg, msg 1 took 191ms (seq=19192 running=34ms runnable=3ms io=28ms late=4954ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver), msg 13 took 453ms (seq=19204 running=95ms runnable=11ms io=336ms late=1467ms h=android.os.Handler c=io.flutter.embedding.engine.dart.DartMessenger$$ExternalSyntheticLambda0)
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+I/TextToSpeech(18822): Connected to ComponentInfo{com.google.android.tts/com.google.android.apps.speech.tts.googletts.service.GoogleTtsService}
+W/Looper  (18822): Slow Looper main: doFrame is 353ms late because of 1 msg
+W/BpBinder(18822): Slow Binder: BpBinder transact took 1997 ms, interface=android.speech.tts.ITextToSpeechService, code=15 oneway=false
+I/TextToSpeech(18822): Set up connection to ComponentInfo{com.google.android.tts/com.google.android.apps.speech.tts.googletts.service.GoogleTtsService}
+I/PlatformViewsChannel(18822): Using legacy platform view rendering strategy.
+D/MapsInitializer(18822): preferredRenderer: null
+D/zzcc    (18822): preferredRenderer: null
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+I/Google Android Maps SDK(18822): Google Play services package version: 263332009
+I/Google Android Maps SDK(18822): Google Play services maps renderer version(maps_core): 263020506
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/PlatformViewsController(18822): Hosting view in view hierarchy for platform view: 0
+I/PlatformViewsController(18822): PlatformView is using SurfaceProducer backend
+D/ForceDarkHelper(18822): updateByCheckExcludeList: pkg: com.ambulancealert.ambulance_flutter activity: com.ambulancealert.ambulance_flutter.MainActivity@ec100bb
+E/FlutterGeolocator(18822): Geolocator position updates started
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/GoogleMapController(18822): Installing custom TextureView driven invalidator.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+D/ImageReaderSurfaceProducer(18822): ImageTextureEntry can't wait on the fence on Android < 33
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/chatty  (18822): uid=10118(com.ambulancealert.ambulance_flutter) androidmapsapi- identical 4 lines
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/chatty  (18822): uid=10118(com.ambulancealert.ambulance_flutter) androidmapsapi- identical 2 lines
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/RenderInspector(18822): DequeueBuffer time out on com.ambulancealert.ambulance_flutter/com.ambulancealert.ambulance_flutter.MainActivity, count=1, avg=17 ms, max=17 ms.
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/bulance_flutte(18822): Background concurrent copying GC freed 136662(6079KB) AllocSpace objects, 5(192KB) LOS objects, 74% free, 6264KB/24MB, paused 135us total 120.962ms
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/chatty  (18822): uid=10118(com.ambulancealert.ambulance_flutter) androidmapsapi- identical 4 lines
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/chatty  (18822): uid=10118(com.ambulancealert.ambulance_flutter) androidmapsapi- identical 2 lines
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/chatty  (18822): uid=10118(com.ambulancealert.ambulance_flutter) androidmapsapi- identical 4 lines
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/chatty  (18822): uid=10118(com.ambulancealert.ambulance_flutter) androidmapsapi- identical 2 lines
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/bulance_flutte(18822): Background young concurrent copying GC freed 334596(15MB) AllocSpace objects, 0(0B) LOS objects, 65% free, 8544KB/24MB, paused 170us total 101.403ms
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/chatty  (18822): uid=10118(com.ambulancealert.ambulance_flutter) androidmapsapi- identical 4 lines
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/chatty  (18822): uid=10118(com.ambulancealert.ambulance_flutter) androidmapsapi- identical 2 lines
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/bulance_flutte(18822): Background young concurrent copying GC freed 293309(13MB) AllocSpace objects, 0(0B) LOS objects, 57% free, 10MB/24MB, paused 134us total 117.222ms
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+D/FlutterJNI(18822): Sending viewport metrics to the engine.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+I/chatty  (18822): uid=10118(com.ambulancealert.ambulance_flutter) androidmapsapi- identical 3 lines
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I (greylist, linking, allowed)
+W/bulance_flutte(18822): Accessing hidden method Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object; (greylist, linking, allowed)
+W/ProxyAndroidLoggerBackend(18822): Too many Flogger logs received before configuration. Dropping old logs.
+Lost connection to device.

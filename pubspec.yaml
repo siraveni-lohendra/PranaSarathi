@@ -1,0 +1,33 @@
+name: ambulance_flutter
+description: "AI Ambulance Alert System Android application"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  google_maps_flutter: ^2.12.2
+  geolocator: ^14.0.0
+  permission_handler: ^12.0.0
+  flutter_dotenv: ^5.2.1
+  http: ^1.4.0
+  web_socket_channel: ^3.0.0
+  flutter_local_notifications: ^19.2.1
+  speech_to_text: ^7.0.0
+  flutter_tts: ^4.2.0
+  provider: ^6.1.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - .env
+    - .env.example
