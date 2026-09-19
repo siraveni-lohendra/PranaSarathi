@@ -5,10 +5,21 @@ class AppConfig {
     await dotenv.load(fileName: '.env');
   }
 
-  static String get backendBaseUrl =>
-      dotenv.env['BACKEND_BASE_URL'] ?? 'http://10.0.2.2:8000/api/v1';
+  static String get backendBaseUrl {
+    if (!dotenv.isInitialized) {
+      return 'http://10.0.2.2:8000/api/v1';
+    }
+    return dotenv.env['BACKEND_BASE_URL'] ?? 'http://10.0.2.2:8000/api/v1';
+  }
 
-  static String get googleMapsApiKey => dotenv.env['GOOGLE_MAPS_API_KEY'] ?? '';
+  static String get googleMapsApiKey {
+    if (!dotenv.isInitialized) {
+      return '';
+    }
+    return dotenv.env['GOOGLE_MAPS_API_KEY'] ?? '';
+  }
 
-  static bool get hasGoogleMapsKey => googleMapsApiKey.trim().isNotEmpty;
+  static bool get hasGoogleMapsKey {
+    return googleMapsApiKey.trim().isNotEmpty;
+  }
 }
