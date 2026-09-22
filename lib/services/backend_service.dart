@@ -81,5 +81,53 @@ class BackendService {
     throw Exception('Unable to send telemetry: ${response.body}');
   }
 
+  Future<Map<String, dynamic>> selectHospital({
+    required String ambulanceId,
+    required String hospitalId,
+    required String hospitalName,
+  }) async {
+    final response = await _client.post(
+      '/emergency/select-hospital',
+      body: {
+        'ambulance_id': ambulanceId,
+        'hospital_id': hospitalId,
+        'hospital_name': hospitalName,
+      },
+    );
+    if (response.statusCode >= 200 && response.statusCode < 300) {
+      return jsonDecode(response.body) as Map<String, dynamic>;
+    }
+    throw Exception('Unable to notify hospital: ${response.body}');
+  }
+
+  Future<Map<String, dynamic>> startAmbulanceEmergency({
+    required String ambulanceId,
+  }) async {
+    final response = await _client.post('/emergency/start/$ambulanceId');
+    if (response.statusCode >= 200 && response.statusCode < 300) {
+      return jsonDecode(response.body) as Map<String, dynamic>;
+    }
+    throw Exception('Unable to start emergency: ${response.body}');
+  }
+
+  Future<Map<String, dynamic>> updateLocation({
+    required String userId,
+    required double latitude,
+    required double longitude,
+  }) async {
+    final response = await _client.post(
+      '/location',
+      body: {
+        'user_id': userId,
+        'latitude': latitude,
+        'longitude': longitude,
+      },
+    );
+    if (response.statusCode >= 200 && response.statusCode < 300) {
+      return jsonDecode(response.body) as Map<String, dynamic>;
+    }
+    throw Exception('Location update failed: ${response.body}');
+  }
+
   void dispose() => _client.dispose();
 }

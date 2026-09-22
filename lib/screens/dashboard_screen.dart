@@ -4,8 +4,10 @@ import 'dart:math' as math;
 import 'package:ambulance_flutter/models/destination.dart';
 import 'package:ambulance_flutter/models/location_point.dart';
 import 'package:ambulance_flutter/services/app_config.dart';
+import 'package:ambulance_flutter/services/backend_service.dart';
 import 'package:ambulance_flutter/services/google_maps_service.dart';
 import 'package:ambulance_flutter/services/location_service.dart';
+import 'package:ambulance_flutter/services/websocket_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -15,10 +17,12 @@ class DashboardScreen extends StatefulWidget {
     super.key,
     required this.token,
     required this.userName,
+    required this.userId,
   });
 
   final String token;
   final String userName;
+  final String userId;
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
@@ -27,8 +31,9 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen>
     with WidgetsBindingObserver {
   final AmbulanceLocationService _locations = AmbulanceLocationService();
-
   final GoogleMapsService _googleMaps = GoogleMapsService();
+  final BackendService _backendService = BackendService();
+  late final WebSocketService _webSocketService;
 
   final TextEditingController _searchController = TextEditingController();
 
@@ -36,6 +41,7 @@ class _DashboardScreenState extends State<DashboardScreen>
   final Set<Polyline> _polylines = <Polyline>{};
 
   GoogleMapController? _mapController;
+  Timer? _locationSyncTimer;
 
   CameraPosition _cameraPosition = const CameraPosition(
     target: LatLng(17.3850, 78.4867),
@@ -50,11 +56,11 @@ class _DashboardScreenState extends State<DashboardScreen>
   bool _calculatingRoute = false;
 
   String _statusText = 'STARTING';
+  WebSocketConnectionStatus _webSocketStatus =
+      WebSocketConnectionStatus.disconnected;
 
   LocationPoint? _currentLocation;
-
   Destination? _selectedDestination;
-
   List<Destination> _destinations = <Destination>[];
 
   StreamSubscription? _locationSub;
@@ -69,13 +75,16 @@ class _DashboardScreenState extends State<DashboardScreen>
     super.initState();
 
     WidgetsBinding.instance.addObserver(this);
+    _webSocketService = WebSocketService(userId: widget.userId);
 
+    _webSocketService.statusStream.listen((status) {
+      if (!mounted) return;
+      setState(() => _webSocketStatus = status);
+    });
+
+    unawaited(_webSocketService.connect());
     unawaited(_bootstrap());
   }
-
-  // ============================================================
-  // INITIALIZATION
-  // ============================================================
 
   Future<void> _bootstrap() async {
     try {
@@ -85,10 +94,6 @@ class _DashboardScreenState extends State<DashboardScreen>
           _statusText = 'CHECKING GPS';
         });
       }
-
-      // --------------------------------------------------------
-      // 1. LOCATION PERMISSION
-      // --------------------------------------------------------
 
       final permissionGranted = await _locations.ensurePermissions();
 
@@ -102,15 +107,10 @@ class _DashboardScreenState extends State<DashboardScreen>
         });
 
         _showMessage('Please enable GPS and location permission.');
-
         return;
       }
 
       _gpsEnabled = true;
-
-      // --------------------------------------------------------
-      // 2. GET CURRENT GPS LOCATION
-      // --------------------------------------------------------
 
       if (mounted) {
         setState(() {
@@ -122,12 +122,10 @@ class _DashboardScreenState extends State<DashboardScreen>
 
       if (position != null) {
         final location = _positionToLocationPoint(position);
-
         _currentLocation = location;
-
         _cameraPosition = CameraPosition(target: location.toLatLng(), zoom: 16);
-
         _updateAmbulanceMarker(location);
+        unawaited(_syncLocationToBackend());
 
         if (mounted) {
           setState(() {
@@ -141,13 +139,8 @@ class _DashboardScreenState extends State<DashboardScreen>
             _statusText = 'GPS ERROR';
           });
         }
-
         return;
       }
-
-      // --------------------------------------------------------
-      // 3. SEARCH NEARBY HOSPITALS
-      // --------------------------------------------------------
 
       if (mounted) {
         setState(() {
@@ -164,43 +157,53 @@ class _DashboardScreenState extends State<DashboardScreen>
         _statusText = _currentLocation != null ? 'GPS LIVE' : 'GPS UNAVAILABLE';
       });
 
-      // --------------------------------------------------------
-      // 4. START CONTINUOUS GPS TRACKING
-      // --------------------------------------------------------
-
       final trackingStarted = await _locations.startTracking();
-
       if (!trackingStarted) {
         if (!mounted) return;
-
         setState(() {
           _gpsEnabled = false;
           _statusText = 'GPS OFF';
         });
-
         _showMessage('Unable to start live GPS tracking.');
-
         return;
       }
 
       _gpsEnabled = true;
-
       _locationSub = _locations.positionStream.listen(_handlePosition);
+      _startLocationSyncTimer();
     } catch (e) {
       if (!mounted) return;
-
       setState(() {
         _loading = false;
         _statusText = 'ERROR';
       });
-
       _showMessage('Initialization failed: $e');
     }
   }
 
-  // ============================================================
-  // LOCATION
-  // ============================================================
+  void _startLocationSyncTimer() {
+    _locationSyncTimer?.cancel();
+    _locationSyncTimer = Timer.periodic(const Duration(seconds: 8), (_) {
+      unawaited(_syncLocationToBackend());
+    });
+  }
+
+  Future<void> _syncLocationToBackend() async {
+    final location = _currentLocation;
+    if (location == null) {
+      return;
+    }
+
+    try {
+      await _backendService.updateLocation(
+        userId: widget.userId,
+        latitude: location.latitude,
+        longitude: location.longitude,
+      );
+    } catch (_) {
+      // Ignore backend outage here. The UI should continue to work.
+    }
+  }
 
   LocationPoint _positionToLocationPoint(dynamic position) {
     return LocationPoint(
@@ -221,13 +224,11 @@ class _DashboardScreenState extends State<DashboardScreen>
     setState(() {
       _currentLocation = location;
       _gpsEnabled = true;
-
       _statusText = _emergencyActive ? 'EMERGENCY ACTIVE' : 'GPS LIVE';
     });
 
     _updateAmbulanceMarker(location);
 
-    // Follow ambulance only during emergency.
     if (_mapController != null && _emergencyActive) {
       _mapController!.animateCamera(
         CameraUpdate.newCameraPosition(
@@ -240,10 +241,6 @@ class _DashboardScreenState extends State<DashboardScreen>
       );
     }
   }
-
-  // ============================================================
-  // AMBULANCE MARKER
-  // ============================================================
 
   void _updateAmbulanceMarker(LocationPoint location) {
     final marker = Marker(
@@ -263,18 +260,12 @@ class _DashboardScreenState extends State<DashboardScreen>
 
     setState(() {
       _markers.removeWhere((marker) => marker.markerId.value == 'ambulance');
-
       _markers.add(marker);
     });
   }
 
-  // ============================================================
-  // SEARCH NEARBY HOSPITALS
-  // ============================================================
-
   Future<void> _searchNearbyHospitals() async {
     final location = _currentLocation;
-
     if (location == null) {
       return;
     }
@@ -303,7 +294,6 @@ class _DashboardScreenState extends State<DashboardScreen>
       });
     } catch (e) {
       debugPrint('Nearby hospital search error: $e');
-
       if (mounted) {
         _showMessage('Unable to load nearby hospitals.');
       }
@@ -316,21 +306,14 @@ class _DashboardScreenState extends State<DashboardScreen>
     }
   }
 
-  // ============================================================
-  // HOSPITAL SEARCH
-  // ============================================================
-
   Future<void> _searchHospitals() async {
     final query = _searchController.text.trim();
-
     if (query.isEmpty) {
       await _searchNearbyHospitals();
       return;
     }
 
     final now = DateTime.now();
-
-    // Small search throttle.
     if (_lastSearchTime != null &&
         now.difference(_lastSearchTime!) < const Duration(milliseconds: 500)) {
       return;
@@ -346,7 +329,6 @@ class _DashboardScreenState extends State<DashboardScreen>
 
     try {
       final location = _currentLocation;
-
       final results = await _googleMaps.searchHospitals(
         query,
         latitude: location?.latitude,
@@ -368,7 +350,6 @@ class _DashboardScreenState extends State<DashboardScreen>
       }
     } catch (e) {
       if (!mounted) return;
-
       _showMessage('Hospital search failed: $e');
     } finally {
       if (mounted) {
@@ -378,10 +359,6 @@ class _DashboardScreenState extends State<DashboardScreen>
       }
     }
   }
-
-  // ============================================================
-  // DESTINATION SELECTION
-  // ============================================================
 
   Future<void> _selectDestination(Destination destination) async {
     if (_emergencyActive) {
@@ -405,7 +382,6 @@ class _DashboardScreenState extends State<DashboardScreen>
 
     try {
       final origin = _currentLocation!;
-
       final route = await _googleMaps.calculateRoute(
         originLatitude: origin.latitude,
         originLongitude: origin.longitude,
@@ -416,19 +392,15 @@ class _DashboardScreenState extends State<DashboardScreen>
       if (!mounted) return;
 
       final distanceMeters = route['distanceMeters'];
-
       final duration = route['duration'];
 
       double? distanceKm;
-
       if (distanceMeters is num) {
         distanceKm = distanceMeters.toDouble() / 1000.0;
       }
 
       final durationText = _formatGoogleDuration(duration);
-
       final encodedPolyline = route['polyline']?['encodedPolyline'];
-
       final points = _decodePolyline(encodedPolyline?.toString() ?? '');
 
       setState(() {
@@ -445,24 +417,28 @@ class _DashboardScreenState extends State<DashboardScreen>
         _moveCameraToDestination(destination);
       }
 
+      try {
+        await _backendService.selectHospital(
+          ambulanceId: widget.userId,
+          hospitalId: 'HOS001',
+          hospitalName: destination.name,
+        );
+      } catch (_) {
+        _showMessage('Hospital notification could not be sent.');
+      }
+
       _showMessage('Route calculated successfully.');
     } catch (e) {
       if (!mounted) return;
-
       setState(() {
         _calculatingRoute = false;
         _statusText = 'GPS LIVE';
         _routeDistanceKm = null;
         _routeDurationText = null;
       });
-
       _showMessage('Unable to calculate route: $e');
     }
   }
-
-  // ============================================================
-  // DESTINATION MARKER
-  // ============================================================
 
   void _addDestinationMarker(Destination destination) {
     final marker = Marker(
@@ -479,14 +455,9 @@ class _DashboardScreenState extends State<DashboardScreen>
 
     setState(() {
       _markers.removeWhere((marker) => marker.markerId.value == 'destination');
-
       _markers.add(marker);
     });
   }
-
-  // ============================================================
-  // ROUTE DRAWING
-  // ============================================================
 
   void _drawRoute(List<LatLng> points) {
     if (points.isEmpty || !mounted) {
@@ -512,10 +483,6 @@ class _DashboardScreenState extends State<DashboardScreen>
     });
   }
 
-  // ============================================================
-  // GOOGLE ENCODED POLYLINE DECODER
-  // ============================================================
-
   List<LatLng> _decodePolyline(String encoded) {
     final points = <LatLng>[];
 
@@ -537,9 +504,7 @@ class _DashboardScreenState extends State<DashboardScreen>
         }
 
         final byte = encoded.codeUnitAt(index++) - 63;
-
         result |= (byte & 0x1f) << shift;
-
         shift += 5;
 
         if (byte < 0x20) {
@@ -548,7 +513,6 @@ class _DashboardScreenState extends State<DashboardScreen>
       }
 
       final deltaLatitude = (result & 1) != 0 ? ~(result >> 1) : (result >> 1);
-
       latitude += deltaLatitude;
 
       shift = 0;
@@ -560,9 +524,7 @@ class _DashboardScreenState extends State<DashboardScreen>
         }
 
         final byte = encoded.codeUnitAt(index++) - 63;
-
         result |= (byte & 0x1f) << shift;
-
         shift += 5;
 
         if (byte < 0x20) {
@@ -571,7 +533,6 @@ class _DashboardScreenState extends State<DashboardScreen>
       }
 
       final deltaLongitude = (result & 1) != 0 ? ~(result >> 1) : (result >> 1);
-
       longitude += deltaLongitude;
 
       points.add(LatLng(latitude / 100000.0, longitude / 100000.0));
@@ -580,17 +541,12 @@ class _DashboardScreenState extends State<DashboardScreen>
     return points;
   }
 
-  // ============================================================
-  // GOOGLE DURATION
-  // ============================================================
-
   String _formatGoogleDuration(dynamic duration) {
     if (duration == null) {
       return 'ETA unavailable';
     }
 
     final value = duration.toString();
-
     final match = RegExp(r'(\d+(?:\.\d+)?)s').firstMatch(value);
 
     if (match == null) {
@@ -598,7 +554,6 @@ class _DashboardScreenState extends State<DashboardScreen>
     }
 
     final seconds = double.tryParse(match.group(1)!) ?? 0;
-
     final minutes = math.max(1, (seconds / 60).round());
 
     if (minutes < 60) {
@@ -615,10 +570,6 @@ class _DashboardScreenState extends State<DashboardScreen>
     return '$hours hr $remainingMinutes min';
   }
 
-  // ============================================================
-  // FIT ROUTE ON MAP
-  // ============================================================
-
   void _fitPointsOnMap(List<LatLng> points) {
     if (_mapController == null || points.length < 2) {
       return;
@@ -626,19 +577,16 @@ class _DashboardScreenState extends State<DashboardScreen>
 
     double minLat = points.first.latitude;
     double maxLat = points.first.latitude;
-
     double minLng = points.first.longitude;
     double maxLng = points.first.longitude;
 
     for (final point in points) {
       minLat = math.min(minLat, point.latitude);
       maxLat = math.max(maxLat, point.latitude);
-
       minLng = math.min(minLng, point.longitude);
       maxLng = math.max(maxLng, point.longitude);
     }
 
-    // Avoid zero-size bounds.
     if ((maxLat - minLat).abs() < 0.0001) {
       maxLat += 0.0005;
       minLat -= 0.0005;
@@ -661,10 +609,6 @@ class _DashboardScreenState extends State<DashboardScreen>
     }
   }
 
-  // ============================================================
-  // MOVE TO DESTINATION
-  // ============================================================
-
   void _moveCameraToDestination(Destination destination) {
     if (_mapController == null) {
       return;
@@ -677,10 +621,6 @@ class _DashboardScreenState extends State<DashboardScreen>
       ),
     );
   }
-
-  // ============================================================
-  // START EMERGENCY
-  // ============================================================
 
   Future<void> _startEmergency() async {
     if (_emergencyActive) {
@@ -697,15 +637,18 @@ class _DashboardScreenState extends State<DashboardScreen>
       return;
     }
 
-    // Route should exist before emergency starts.
     if (_polylines.isEmpty) {
       _showMessage('Please calculate the route first.');
-
       await _selectDestination(_selectedDestination!);
-
       if (_polylines.isEmpty) {
         return;
       }
+    }
+
+    try {
+      await _backendService.startAmbulanceEmergency(ambulanceId: widget.userId);
+    } catch (_) {
+      _showMessage('Backend emergency start failed.');
     }
 
     if (!mounted) return;
@@ -716,14 +659,8 @@ class _DashboardScreenState extends State<DashboardScreen>
     });
 
     _showMessage('Emergency started.');
-
-    // Keep route visible.
     _moveCameraToDestination(_selectedDestination!);
   }
-
-  // ============================================================
-  // END EMERGENCY
-  // ============================================================
 
   Future<void> _endEmergency() async {
     if (!_emergencyActive) {
@@ -740,10 +677,6 @@ class _DashboardScreenState extends State<DashboardScreen>
     _showMessage('Emergency ended.');
   }
 
-  // ============================================================
-  // MAP CREATED
-  // ============================================================
-
   void _onMapCreated(GoogleMapController controller) {
     _mapController = controller;
 
@@ -756,21 +689,12 @@ class _DashboardScreenState extends State<DashboardScreen>
     }
   }
 
-  // ============================================================
-  // GPS SETTINGS
-  // ============================================================
-
   Future<void> _openGpsSettings() async {
     await _locations.openLocationSettings();
   }
 
-  // ============================================================
-  // RECENTER
-  // ============================================================
-
   void _recenterMap() {
     final location = _currentLocation;
-
     if (location == null || _mapController == null) {
       return;
     }
@@ -787,10 +711,6 @@ class _DashboardScreenState extends State<DashboardScreen>
     );
   }
 
-  // ============================================================
-  // MESSAGE
-  // ============================================================
-
   void _showMessage(String message) {
     if (!mounted) return;
 
@@ -800,10 +720,6 @@ class _DashboardScreenState extends State<DashboardScreen>
         SnackBar(content: Text(message), behavior: SnackBarBehavior.floating),
       );
   }
-
-  // ============================================================
-  // APP LIFECYCLE
-  // ============================================================
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
@@ -823,18 +739,39 @@ class _DashboardScreenState extends State<DashboardScreen>
 
     if (enabled && !_locations.isTracking) {
       final started = await _locations.startTracking();
-
       if (started) {
         _locationSub?.cancel();
-
         _locationSub = _locations.positionStream.listen(_handlePosition);
       }
     }
   }
 
-  // ============================================================
-  // BUILD
-  // ============================================================
+  String _websocketStatusText() {
+    switch (_webSocketStatus) {
+      case WebSocketConnectionStatus.connected:
+        return 'Connected';
+      case WebSocketConnectionStatus.connecting:
+        return 'Connecting...';
+      case WebSocketConnectionStatus.disconnected:
+        return 'Disconnected';
+    }
+  }
+
+  Color _statusColor() {
+    if (_emergencyActive) {
+      return Colors.red;
+    }
+    if (_calculatingRoute) {
+      return Colors.orange;
+    }
+    if (_webSocketStatus == WebSocketConnectionStatus.disconnected) {
+      return Colors.grey;
+    }
+    if (_gpsEnabled) {
+      return Colors.green;
+    }
+    return Colors.grey;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -855,7 +792,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
-                  _statusText,
+                  '${_statusText} • ${_websocketStatusText()}',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 11,
@@ -870,10 +807,6 @@ class _DashboardScreenState extends State<DashboardScreen>
       body: _buildHomeBody(),
     );
   }
-
-  // ============================================================
-  // HOME BODY
-  // ============================================================
 
   Widget _buildHomeBody() {
     return Column(
@@ -897,7 +830,6 @@ class _DashboardScreenState extends State<DashboardScreen>
               else
                 _buildMapUnavailable(),
 
-              // GPS CARD
               Positioned(
                 top: 12,
                 left: 12,
@@ -905,7 +837,6 @@ class _DashboardScreenState extends State<DashboardScreen>
                 child: _buildGpsStatusCard(),
               ),
 
-              // DESTINATION SEARCH
               Positioned(
                 top: 88,
                 left: 12,
@@ -913,7 +844,6 @@ class _DashboardScreenState extends State<DashboardScreen>
                 child: _buildDestinationSearch(),
               ),
 
-              // RECENTER
               Positioned(
                 right: 16,
                 bottom: 18,
@@ -924,7 +854,6 @@ class _DashboardScreenState extends State<DashboardScreen>
                 ),
               ),
 
-              // LOADING
               if (_loading)
                 Positioned.fill(
                   child: ColoredBox(
@@ -958,15 +887,10 @@ class _DashboardScreenState extends State<DashboardScreen>
             ],
           ),
         ),
-
         _buildControlPanel(),
       ],
     );
   }
-
-  // ============================================================
-  // MAP UNAVAILABLE
-  // ============================================================
 
   Widget _buildMapUnavailable() {
     return Container(
@@ -1000,10 +924,6 @@ class _DashboardScreenState extends State<DashboardScreen>
       ),
     );
   }
-
-  // ============================================================
-  // GPS STATUS
-  // ============================================================
 
   Widget _buildGpsStatusCard() {
     return Card(
@@ -1046,7 +966,6 @@ class _DashboardScreenState extends State<DashboardScreen>
 
   String _locationText() {
     final location = _currentLocation;
-
     if (location == null) {
       return 'Waiting for location...';
     }
@@ -1054,10 +973,6 @@ class _DashboardScreenState extends State<DashboardScreen>
     return '${location.latitude.toStringAsFixed(6)}, '
         '${location.longitude.toStringAsFixed(6)}';
   }
-
-  // ============================================================
-  // DESTINATION SEARCH
-  // ============================================================
 
   Widget _buildDestinationSearch() {
     return Column(
@@ -1105,16 +1020,11 @@ class _DashboardScreenState extends State<DashboardScreen>
             ),
           ),
         ),
-
         if (_destinations.isNotEmpty && !_emergencyActive)
           _buildDestinationResults(),
       ],
     );
   }
-
-  // ============================================================
-  // DESTINATION RESULTS
-  // ============================================================
 
   Widget _buildDestinationResults() {
     return Container(
@@ -1166,10 +1076,6 @@ class _DashboardScreenState extends State<DashboardScreen>
     );
   }
 
-  // ============================================================
-  // CONTROL PANEL
-  // ============================================================
-
   Widget _buildControlPanel() {
     return Container(
       width: double.infinity,
@@ -1179,9 +1085,7 @@ class _DashboardScreenState extends State<DashboardScreen>
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           _buildSelectedDestination(),
-
           const SizedBox(height: 10),
-
           if (_calculatingRoute)
             const Padding(
               padding: EdgeInsets.only(bottom: 10),
@@ -1200,12 +1104,9 @@ class _DashboardScreenState extends State<DashboardScreen>
                 ],
               ),
             ),
-
           if (_selectedDestination != null && _routeDistanceKm != null)
             _buildRouteInfo(),
-
           const SizedBox(height: 10),
-
           Row(
             children: [
               Expanded(child: _buildStartButton()),
@@ -1213,18 +1114,12 @@ class _DashboardScreenState extends State<DashboardScreen>
               Expanded(child: _buildEndButton()),
             ],
           ),
-
           const SizedBox(height: 10),
-
           _buildEmergencyInfo(),
         ],
       ),
     );
   }
-
-  // ============================================================
-  // SELECTED DESTINATION
-  // ============================================================
 
   Widget _buildSelectedDestination() {
     final destination = _selectedDestination;
@@ -1289,10 +1184,6 @@ class _DashboardScreenState extends State<DashboardScreen>
     );
   }
 
-  // ============================================================
-  // ROUTE INFO
-  // ============================================================
-
   Widget _buildRouteInfo() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
@@ -1348,10 +1239,6 @@ class _DashboardScreenState extends State<DashboardScreen>
     );
   }
 
-  // ============================================================
-  // START BUTTON
-  // ============================================================
-
   Widget _buildStartButton() {
     return FilledButton.icon(
       onPressed:
@@ -1373,10 +1260,6 @@ class _DashboardScreenState extends State<DashboardScreen>
     );
   }
 
-  // ============================================================
-  // END BUTTON
-  // ============================================================
-
   Widget _buildEndButton() {
     return FilledButton.icon(
       onPressed: _emergencyActive ? _endEmergency : null,
@@ -1391,10 +1274,6 @@ class _DashboardScreenState extends State<DashboardScreen>
       ),
     );
   }
-
-  // ============================================================
-  // EMERGENCY INFO
-  // ============================================================
 
   Widget _buildEmergencyInfo() {
     return Row(
@@ -1435,10 +1314,6 @@ class _DashboardScreenState extends State<DashboardScreen>
     );
   }
 
-  // ============================================================
-  // CLEAR DESTINATION
-  // ============================================================
-
   void _clearDestination() {
     if (!mounted || _emergencyActive) {
       return;
@@ -1448,53 +1323,24 @@ class _DashboardScreenState extends State<DashboardScreen>
       _selectedDestination = null;
       _routeDistanceKm = null;
       _routeDurationText = null;
-
       _polylines.removeWhere(
         (polyline) => polyline.polylineId.value == 'route',
       );
-
       _markers.removeWhere((marker) => marker.markerId.value == 'destination');
-
       _statusText = _gpsEnabled ? 'GPS LIVE' : 'GPS UNAVAILABLE';
     });
   }
 
-  // ============================================================
-  // STATUS COLOR
-  // ============================================================
-
-  Color _statusColor() {
-    if (_emergencyActive) {
-      return Colors.red;
-    }
-
-    if (_calculatingRoute) {
-      return Colors.orange;
-    }
-
-    if (_gpsEnabled) {
-      return Colors.green;
-    }
-
-    return Colors.grey;
-  }
-
-  // ============================================================
-  // DISPOSE
-  // ============================================================
-
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
-
+    _locationSyncTimer?.cancel();
     _locationSub?.cancel();
-
     _searchController.dispose();
-
     _locations.dispose();
-
+    _backendService.dispose();
+    _webSocketService.dispose();
     _mapController = null;
-
     super.dispose();
   }
 }
